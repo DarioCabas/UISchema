@@ -26,7 +26,7 @@ export default function Home() {
           alignItems: 'center',
         }}
       >
-        <Generator />
+        <DynamicForm />
       </Box>
     </Container>
   );

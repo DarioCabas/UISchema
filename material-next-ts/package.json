@@ -19,6 +19,7 @@
     "@tutim/fields": "^0.1.4",
     "@tutim/headless": "^0.1.4",
     "@tutim/types": "^0.1.4",
+    "@ui-schema/dictionary": "^0.0.11",
     "@ui-schema/ds-material": "^0.4.1",
     "@ui-schema/ui-schema": "^0.4.5",
     "immutable": "^4.3.1",

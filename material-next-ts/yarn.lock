@@ -531,6 +531,11 @@
     "@typescript-eslint/types" "5.62.0"
     eslint-visitor-keys "^3.3.0"
 
+"@ui-schema/dictionary@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@ui-schema/dictionary/-/dictionary-0.0.11.tgz#9a6c091352a947b87d9a0a10e8745f091180214e"
+  integrity sha512-r/JW5xGqVIEyRIyOn/rSble66gepVKcT+UVmWjK1meaM2s675pi86J9Xd6sIhTW/f1ni1u8tPjT7OWWapSn6KQ==
+
 "@ui-schema/ds-material@^0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@ui-schema/ds-material/-/ds-material-0.4.1.tgz#6708b03be28c1ca8a21ab484e33ad9c60577e70e"

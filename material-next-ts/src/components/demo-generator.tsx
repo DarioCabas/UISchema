@@ -24,6 +24,7 @@ import { Step, Stepper, widgets } from "@ui-schema/ds-material";
 import { GridContainer } from "@ui-schema/ds-material/GridContainer";
 import { Button } from "@mui/material";
 import { Refresh } from "@mui/icons-material";
+import { browserT } from "./t";
 
 
 // Empty Demo Schema & Data/Values
@@ -54,8 +55,10 @@ const schema1 = {
             },
           },
           required: [
-            'surname',
+
+            'surname'
           ],
+          
         },
         'step-2': {
           type: 'object',
@@ -230,15 +233,15 @@ const schema1 = {
 
 const values = {};
 
-const customWidgets = {...widgets}
+const customWidgets = { ...widgets }
 customWidgets.custom = {
-    ...widgets.custom,
-    Stepper: Stepper,
-    Step: Step,
+  ...widgets.custom,
+  Stepper: Stepper,
+  Step: Step,
 }
 
 const data1 = {
-  stepper: { "step-1": { name: "Max" } },
+  stepper: { "step-1": { name: "Max" } ,},
   headline: "Some Demo Content Headline"
 };
 
@@ -262,6 +265,7 @@ export const Generator = () => {
 
   const onChange = React.useCallback(
     (actions: any) => {
+      
       setStore(storeUpdater(actions));
     },
     [setStore]
@@ -281,14 +285,14 @@ export const Generator = () => {
     <>
       <UIMetaProvider
         widgets={customWidgets}
-        t={relTranslator}
+        t={browserT}
       >
         <UIStoreProvider
           store={store}
           onChange={onChange}
           showValidity={showValidity}
         >
-          <GridStack isRoot schema={schema} />
+          <GridStack isRoot schema={schema}  />
         </UIStoreProvider>
       </UIMetaProvider>
       <Button
@@ -310,3 +314,4 @@ export const Generator = () => {
     </>
   )
 };
+

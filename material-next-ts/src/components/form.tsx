@@ -1,6 +1,6 @@
-import { Button } from '@mui/material';
+import { Button, Stepper, Step, StepLabel } from '@mui/material';
 import { defaultFields } from '@tutim/fields';
-import { TutimWizard, TutimProvider, useWizard, useWizardContext, useStep , WizardProvider} from '@tutim/headless';
+import { TutimWizard, TutimProvider, useWizard, useWizardContext, useStep, WizardProvider } from '@tutim/headless';
 import { FormConfig, PartialFormConfig } from '@tutim/types'
 
 const config: FormConfig = {
@@ -12,8 +12,15 @@ const config: FormConfig = {
       type: 'text',
       isRequired: true,
       tooltip: 'A tooltip',
-      helperText: 'A helper text',
+      helperText: '',
       placeholder: 'A placeholder',
+      validations:{
+        require:{
+          
+          value: 10,
+          message: 'Must be 10'
+        }
+      }
     },
     {
       key: 'lastName',
@@ -71,14 +78,24 @@ const contextOptions = {
 const ContextedStep = () => {
   const context = useWizardContext();
   const step = useStep();
+  console.log('wizard', step.form)
   return (
     <div>
+      <Stepper activeStep={context.activeStep}>
+        {context.config.wizard?.steps.map((step, index) => {
+          return (
+            <Step key={step.label} >
+              <StepLabel >{step.label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
       <p>my step is {context.activeStep}</p>
       {step.form.fields}
       <Button onClick={step.goBack} disabled={!step.form.formState.isValid || step.isFirstStep}>
         Go Back
       </Button>
-      <Button onClick={step.goNext} disabled={!step.form.formState.isValid}>
+      <Button onClick={step.goNext} >
         {step.isLastStep ? 'Submit' : 'Go Next'}
       </Button>
     </div>
